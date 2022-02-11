@@ -1,8 +1,11 @@
 {
-  "name": "bookmarks",
+  "name": "snackfull",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engine": {
+    "node": "16.4.0"
+  },
   "scripts": {
     "db:init": "psql -U postgres -f db/schema.sql",
     "db:seed": "psql -U postgres -f db/seed.sql",
