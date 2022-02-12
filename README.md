@@ -1,5 +1,15 @@
 # Snack-A-Log Pair Programming Lab
 
+## Team 
+
+- [@salrey](https://github.com/salrey)
+- [@imolina212](https://github.com/imolina212)
+
+## Project 
+
+- To view our deployed Snackfull application, click [here](https://snackfull.netlify.app/)
+
+
 ## Overview
 
 In this lab activity, you will practice collaborating on a project. You'll be building an app to track snacks and whether or not they are healthy.
