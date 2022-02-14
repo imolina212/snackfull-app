@@ -69,6 +69,36 @@ describe("snacks", () => {
         expect(parsedRes.payload.id).toBe(undefined);
       });
     });
+
+    describe("PUT", () => {
+      it("with valid snack and id - updates the correct snack", async () => {
+        const response = await request(snacks).put("/snacks/1").send({
+          name: "Snack Platter",
+          image:
+            "https://www.freshcravings.com/wp-content/uploads/2017/12/FC_MexicanSnack-Platter-1-1480x1480@2x.jpg",
+          fiber: 6,
+          protein: 5,
+          added_sugar: 1,
+        });
+
+        const parsedRes = JSON.parse(response.text);
+
+        expect(parsedRes.success).toBe(true);
+        expect(parsedRes.payload.id).toEqual(1);
+        expect(parsedRes.payload.name).toEqual("Snack Platter");
+      });
+
+      it("with invalid snack or id - responds with 422 and message", async () => {
+        const response = await request(snacks).put("/snacks/1").send({ image: "http://no-name.test" });
+
+        const parsedRes = JSON.parse(response.text);
+
+        expect(response.statusCode).toEqual(422);
+        expect(parsedRes.success).toBe(false);
+        expect(parsedRes.payload).toMatch(/include all fields/);
+      });
+    });
+
   });
 
   describe("/snacks", () => {
@@ -227,38 +257,8 @@ describe("snacks", () => {
         expect(parsedRes.payload.is_healthy).toBe(null);
       });
     });
-
-    // describe("PUT", () => {
-    //   it("with valid snack and id - updates the correct snack", async () => {
-    //     const response = await request(snacks).put("/snacks/1").send({
-    //       name: "Snack Platter",
-    //       image:
-    //         "https://www.freshcravings.com/wp-content/uploads/2017/12/FC_MexicanSnack-Platter-1-1480x1480@2x.jpg",
-    //       fiber: 6,
-    //       protein: 5,
-    //       added_sugar: 1,
-    //     });
-
-    //     const parsedRes = JSON.parse(response.text);
-
-    //     expect(parsedRes.success).toBe(true);
-    //     expect(parsedRes.payload.id).toEqual(1);
-    //     expect(parsedRes.payload.name).toEqual("Snack Platter");
-    //   });
-
-    //   it("with invalid snack or id - responds with 422 and message", async () => {
-    //     const response = await request(snacks)
-    //       .put("/snacks/1")
-    //       .send({ image: "http://no-name.test" });
-
-    //     const parsedRes = JSON.parse(response.text);
-
-    //     expect(response.statusCode).toEqual(422);
-    //     expect(parsedRes.success).toBe(false);
-    //     expect(parsedRes.payload).toMatch(/include all fields/);
-    //   });
-    // });
   });
+
   describe("Snack Health Check", () => {
     describe("Snack Health: ♥ Enough fiber", () => {
       it("Checks if fiber is above five and added_sugar is below 5", () => {
