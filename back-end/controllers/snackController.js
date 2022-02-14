@@ -5,29 +5,44 @@ const {
     addNewSnack,
     getOneSnack,
     deleteSnack,
-    updateSnack
+    updateSnack,
 } = require("../queries/snacks")
 
 //Controller to handle sub-routes
 const snacks = express.Router();
 
+const { setValues } = require("../helpers/functions")
+
+
 //INDEX
 snacks.get("/", async (_, response) => {
-    const allSnacks = await getAllSnacks();
-    if(allSnacks.length !== 0){
-        response.status(200).json(allSnacks.data)
+    const snacks = await getAllSnacks();
+    if(snacks.length === 0){
+        response.status(500).json({error: 'server error'})
+    } else {
+        response.status(200).json({payload: snacks})
     }
-    response.status(404).json({error: "Snacks Not Found"})
-});
+})
+
+//CREATE
+snacks.post("/", async (request, response) => {
+    try {
+        const newSnack = await addNewSnack(request.body)
+        response.status(200).json({success: true, payload: setValues(newSnack[0])})
+    } catch (error) {
+        throw error
+    } 
+})
+
 //SHOW
 snacks.get("/:id", async (request, response) => {
     const { id } = request.params;
     try {
         const snack = await getOneSnack(id)
         if(snack.id) {
-            response.status(200).json(snack)
+            response.status(200).json({ success: true, payload: snack })
         } else {
-            response.status(404).json("error")
+            response.status(404).json({ success: false, payload: "not found" })
         }
     } catch (error) {
         throw error;
@@ -46,12 +61,16 @@ snacks.post("/", async (request, response) => {
 
 
 //Update
-snacks.put("/snacks/:id", async (request, response) => {
-    const updatedSnack = await updateSnack(request.params.id, request.body)
-    if(updatedSnack.id) {
-        response.status(200).json(updatedSnack)
-    } else {
-        response.status(404).json({error: "Snack does not exist"})
+snacks.put("/:id", async (request, response) => {
+    const updatedSnack = await updateSnack(setValues(request.body), request.params.id) 
+    try {
+        if(updatedSnack.id && updatedSnack.name) {
+            response.status(200).json({ success: true, payload: updatedSnack })
+        } else {
+            response.status(422).json({ success: false, payload: "include all fields" })
+        }
+    } catch (error) {
+        throw error
     }
 })
 
@@ -60,7 +79,11 @@ snacks.delete("/:id", async (request, response) => {
     const { id } = request.params;
     try {
         const snack = await deleteSnack(id)
-        response.status(200).json(snack)
+        if (snack.id) {
+            response.status(200).json({ success: true, payload: snack })
+        } else {
+            response.status(422).json({ success: false, payload: snack})
+        }
     } catch (error) {
         throw error
     }
