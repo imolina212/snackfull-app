@@ -1,15 +1,21 @@
 //Dependencies
 import { Routes, Route } from "react-router-dom"
 //Components
-// import NavBar from './Components/NavBar'
+import NavBar from './Components/NavBar'
 
-import Home from "."
+//Pages
+import Home from "./Pages/Home";
+import Index from "./Pages/Index";
+import Show from "./Pages/Show";
+import New from "./Pages/New";
+import Edit from "./Pages/Edit";
+import Reload from "./Pages/Reload";
 
 
 function App() {
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />}/>
         <Route path="/snacks" element={<Index />}/>
