@@ -34,6 +34,8 @@ const SnackDetails = () => {
             </aside>
             <div><img src={snack.payload?.image} alt={snack.payload?.name}/></div>
             <div>Protein: {snack.payload?.protein}</div>
+            <div>Fiber: {snack.payload?.fiber}</div>
+            <div>Added Sugar: {snack.payload?.added_sugar}</div>
             <div> 
                 <Link to={`/snacks`}>
                     <button className="btn btn-success">Back</button>
