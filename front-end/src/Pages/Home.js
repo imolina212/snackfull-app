@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
-
-export default Home
-=======
 const Home = () => {
     return (
       <div>
@@ -18,4 +7,3 @@ const Home = () => {
   }
   
   export default Home;
->>>>>>> b637286912c09d48903d410bad80bba20d82fc9b
