@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const New = () => {
-  return (
-    <div>New</div>
-  )
-}
-
-export default New
-=======
 import SnackForm from "../Components/SnackForm";
 
 const New = () => {
@@ -21,4 +10,3 @@ const New = () => {
 }
 
 export default New;
->>>>>>> b637286912c09d48903d410bad80bba20d82fc9b

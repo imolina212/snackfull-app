@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const Show = () => {
-  return (
-    <div>Show</div>
-  )
-}
-
-export default Show
-=======
 // import './Show.css';
 
 import SnackDetails from "../Components/SnackDetails";
@@ -25,4 +14,3 @@ const Show = () => {
 }
 
 export default Show;
->>>>>>> b637286912c09d48903d410bad80bba20d82fc9b
