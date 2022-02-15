@@ -4,12 +4,21 @@ import { Routes, Route } from "react-router-dom"
 import NavBar from './Components/NavBar'
 
 //Pages
+<<<<<<< HEAD
 import Home from "./Pages/Home"
 import Index from "./Pages/Index"
 import Show from "./Pages/Show"
 import New from "./Pages/New"
 import Edit from "./Pages/Edit"
 import Reload from "./Pages/Reload"
+=======
+import Home from "./Pages/Home";
+import Index from "./Pages/Index";
+import Show from "./Pages/Show";
+import New from "./Pages/New";
+import Edit from "./Pages/Edit";
+import Reload from "./Pages/Reload";
+>>>>>>> b637286912c09d48903d410bad80bba20d82fc9b
 
 
 function App() {
