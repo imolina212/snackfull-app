@@ -20,7 +20,7 @@ const cn = DATABASE_URL
     };
 
 // alt from express docs
-// var db = pgp('postgres://username:password@host:port/database')
+// const db = pgp('postgres://username:password@host:port/database')
 
 const db = pgp(cn);
 
