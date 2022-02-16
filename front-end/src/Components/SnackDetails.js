@@ -50,3 +50,4 @@ const SnackDetails = () => {
 }
 
 export default SnackDetails;
+  
