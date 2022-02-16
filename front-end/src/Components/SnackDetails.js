@@ -16,14 +16,14 @@ const SnackDetails = () => {
         .catch(() => { navigate("/not-found")})
     }, [URL, id, navigate])
 
-    const deletesnack = () => {
+    const deleteSnack = () => {
         axios.delete(`${URL}/snacks/${id}`)
         .then(() => navigate("/snacks"))
         .catch((e) => console.error(e));
     };
 
     const handleDelete = () => {
-        deletesnack()
+        deleteSnack()
     };
 
     
