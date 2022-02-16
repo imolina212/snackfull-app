@@ -28,7 +28,7 @@ snacks.get("/", async (_, response) => {
 snacks.post("/", async (request, response) => {
     try {
         const newSnack = await addNewSnack(request.body)
-        response.status(200).json({success: true, payload: setValues(newSnack[0])})
+        response.status(200).json({success: true, payload: setValues(newSnack)})
     } catch (error) {
         throw error
     } 
@@ -48,17 +48,6 @@ snacks.get("/:id", async (request, response) => {
         throw error;
     }
 })
-
-//CREATE
-snacks.post("/", async (request, response) => {
-    try {
-        const newSnack = await addNewSnack(request.body)
-        response.status(200).json(newSnack)
-    } catch (error) {
-        throw error
-    } 
-})
-
 
 //Update
 snacks.put("/:id", async (request, response) => {

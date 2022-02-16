@@ -24,12 +24,12 @@ const addNewSnack = async (newSnack) => {
     try {
         const { name, fiber, protein, added_sugar, is_healthy, image } = newSnack
 
-        const snacks = await db.any(
+        const snack = await db.one(
             "INSERT INTO snacks (name, fiber, protein, added_sugar, is_healthy, image) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
             [ name, fiber, protein, added_sugar, is_healthy, image ]
             );
 
-        return snacks;
+        return snack;
     } catch (error) {
         return error;
     }
