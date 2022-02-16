@@ -21,8 +21,8 @@ const Snacks = () => {
       <main>
         <section className="Snacks">
           <article>
-              {snacks.map((snack, index) => {
-                return <FormatSnacks key={index} snack={snack} id={index}/>
+              {snacks.map((snack) => {
+                return <FormatSnacks key={snack.id} snack={snack}/>
               })}
           </article>
         </section>

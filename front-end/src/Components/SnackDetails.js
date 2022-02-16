@@ -25,7 +25,6 @@ const SnackDetails = () => {
     const handleDelete = () => {
         deleteSnack()
     };
-
     
     return (
         <article className="">
@@ -38,10 +37,13 @@ const SnackDetails = () => {
             <div>Added Sugar: {snack.payload?.added_sugar}</div>
             <div> 
                 <Link to={`/snacks`}>
-                    <button className="btn btn-success">Back</button>
+                    <button className="">Back</button>
+                </Link>
+                <Link to={`/snacks/${id}/edit`}>
+                    <button className="">Edit</button>
                 </Link>
                 <button 
-                    className="btn btn-danger" 
+                    className="" 
                     onClick={handleDelete}>Delete
                 </button>
             </div>
