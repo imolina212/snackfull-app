@@ -6,7 +6,7 @@ const NavBar = () => {
       <h1>
         <Link to="/snacks">Snacks</Link>
       </h1>
-      <button>
+      <button className="btn-primary">
         <Link to="/snacks/new">New Snack</Link>
       </button>
     </nav>
