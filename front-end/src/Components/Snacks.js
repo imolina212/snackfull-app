@@ -19,9 +19,13 @@ const Snacks = () => {
 
     return (
       <main>
-        {snacks.map((snack, index) => {
-          return <FormatSnacks key={index} snack={snack} id={index}/>
-        })}
+        <section className="Snacks">
+          <article>
+              {snacks.map((snack, index) => {
+                return <FormatSnacks key={index} snack={snack} id={index}/>
+              })}
+          </article>
+        </section>
       </main>
     );
   }
