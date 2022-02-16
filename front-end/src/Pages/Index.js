@@ -1,4 +1,5 @@
 import Snacks from "../Components/Snacks";
+import "../Pages/Index.css"
 
 const Index = () => {
   return (
