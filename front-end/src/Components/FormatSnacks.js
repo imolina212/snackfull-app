@@ -7,8 +7,10 @@ const FormatSnacks = ({ snack }) => {
     <div className="Snack">
       <Link to={`/snacks/${snack.id}`}>
         <h4>
-          {snack.is_healthy ? <img src={heartSolid} alt="healthy food"/> : <img src={heartOutline} alt="unhealthy food"/>}
           {snack.name}
+        </h4>
+        <h4>
+          {snack.is_healthy ? <img src={heartSolid} alt="healthy food"/> : <img src={heartOutline} alt="unhealthy food"/>}
         </h4>
       </Link>
     </div>

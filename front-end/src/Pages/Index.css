@@ -20,8 +20,8 @@ nav {
     margin-bottom: 1em;
 }
 
-a {
-    text-decoration: none;
+a, a:hover{
+    text-decoration-line: none;
     color: rgb(235, 94, 40);
 }
 

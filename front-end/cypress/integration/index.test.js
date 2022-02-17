@@ -82,7 +82,7 @@ describe("index page", () => {
       cy.get("nav").should("have.css", "margin-bottom").and("match", /15px/);
     });
     it("has anchors with no text-decoration and color rgb(235, 94, 40)", () => {
-      cy.get("a").should("have.css", "text-decoration").and("match", /none/);
+      cy.get("a").should("have.css", "text-decoration-line").and("match", /none/);
       cy.get("a")
         .should("have.css", "color")
         .and("match", /235, 94, 40/);

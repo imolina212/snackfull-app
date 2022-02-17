@@ -27,8 +27,8 @@ snacks.get("/", async (_, response) => {
 //CREATE
 snacks.post("/", async (request, response) => {
     try {
-        const newSnack = await addNewSnack(request.body)
-        response.status(200).json({success: true, payload: setValues(newSnack)})
+        const newSnack = await addNewSnack(setValues(request.body))
+        response.status(200).json({success: true, payload: newSnack})
     } catch (error) {
         throw error
     } 
