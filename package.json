@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engine": {
+    "node": "16.4.0"
+  },
   "scripts": {
     "start": "cd back-end && npm i && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
