@@ -10,7 +10,9 @@ const FormatSnacks = ({ snack }) => {
           {snack.name}
         </h4>
         <h4>
-          {snack.is_healthy ? <img src={heartSolid} alt="healthy food"/> : <img src={heartOutline} alt="unhealthy food"/>}
+          <div>
+            {snack.is_healthy ? <img src={heartSolid} alt="healthy food"/> : <img src={heartOutline} alt="unhealthy food"/>}
+          </div>
         </h4>
       </Link>
     </div>
